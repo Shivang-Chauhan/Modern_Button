@@ -1,0 +1,41 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+#wrapper{
+    height: 100vh;
+    width: 100vw;
+    display: flex; /* as we want to put the button div in the center, that's why we'll put it in a flex. */
+    justify-content: center;
+    align-items: center;
+}
+
+.pink-btn{
+    background-color: #e84949;
+    padding: 0.8rem 2.3rem;  /* top and bottom padding 0.8rem, left and right padding 2.3rem */
+    color: white;
+    font-size: 18px;
+    box-shadow: 5px 5px 7px 0px #0000003f;
+    position: relative;
+    z-index: 1;
+}
+
+.pink-btn::before{  /* In CSS, ::before creates a pseudo-element that is the first child of the selected element. It is often used to add cosmetic content to an element with the content property. It is inline by default. */
+    content: "";
+    background-color: #1f1f1f;
+    position: absolute; /* as I want to overlap the black screen over the hire me button. */
+    top: 0;        /* Setting top: 0; left: 0; bottom: 0; right: 0; gives the browser a new bounding box for the block. At this point the block will fill all available space in its offset parent, which is the body or position: relative; container. */
+    right: 0;
+    bottom: 0;
+    left: 0;
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: all 0.8s;
+    z-index: -1;
+}
+
+.pink-btn:hover::before{
+    transform: scaleX(1);
+}
